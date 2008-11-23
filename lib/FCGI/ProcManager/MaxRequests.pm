@@ -3,7 +3,7 @@ use strict;
 
 use base 'FCGI::ProcManager';
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 sub new {
     my $proto = shift;
@@ -79,7 +79,7 @@ Set/get current max_requests value.
 
 =head2 handling_init
 
-Initialize requests counter while after new worker process forks.
+Initialize requests counter after new worker process forks.
 
 =head2 pm_post_dispatch
 
@@ -92,6 +92,10 @@ Because of this we should use environment PM_MAX_REQUESTS ;-)
 
     PM_MAX_REQUESTS=100 ./script/myapp_fastcgi.pl -n 10 -l <host>:<port> -d -M FCGI::ProcManager::MaxRequests
 
+
+=head1 SEE ALSO
+
+You can also see L<FCGI::Spawn>, but it don't support TCP sockets and try use CGI::Fast...
 
 =head1 AUTHOR
 
@@ -128,6 +132,10 @@ L<http://cpanratings.perl.org/d/FCGI-ProcManager-MaxRequests>
 =item * Search CPAN
 
 L<http://search.cpan.org/dist/FCGI-ProcManager-MaxRequests/>
+
+=item * Source code repository
+
+L<http://svn.vovkasm.org/FCGI-ProcManager-MaxRequests>
 
 =back
 
